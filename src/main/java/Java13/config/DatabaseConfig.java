@@ -1,7 +1,6 @@
 package Java13.config;
 
-import Java13.entity.UserDetails;
-import Java13.entity.UserProfile;
+import Java13.entity.*;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
@@ -19,7 +18,7 @@ public class DatabaseConfig {
         properties.setProperty(Environment.JAKARTA_JDBC_URL, "jdbc:postgresql://localhost:5432/postgres");
         properties.setProperty(Environment.JAKARTA_JDBC_USER, "postgres");
         properties.setProperty(Environment.JAKARTA_JDBC_PASSWORD, "postgres");
-        properties.setProperty(Environment.HBM2DDL_AUTO, "create");
+        properties.setProperty(Environment.HBM2DDL_AUTO, "update");
         properties.setProperty(Environment.SHOW_SQL, "true");
         properties.setProperty(Environment.FORMAT_SQL, "true");
         properties.setProperty(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
@@ -33,6 +32,10 @@ public class DatabaseConfig {
 
         configuration.addAnnotatedClass(UserDetails.class);
         configuration.addAnnotatedClass(UserProfile.class);
+        configuration.addAnnotatedClass(Student.class);
+        configuration.addAnnotatedClass(Course.class);
+        configuration.addAnnotatedClass(Comment.class);
+        configuration.addAnnotatedClass(BlogPost.class);
 
         return configuration.buildSessionFactory().unwrap(EntityManagerFactory.class);
     }

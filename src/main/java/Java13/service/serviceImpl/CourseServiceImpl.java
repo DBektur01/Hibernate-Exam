@@ -12,7 +12,7 @@ import java.util.List;
  * Author: Bektur Duyshenbek uulu
  */
 public class CourseServiceImpl implements CourseService {
-    private CourseDao courseDao;
+    private CourseDao courseDao = new CourseDaoImpl();
 
     @Override
     public String createCourse(Course course) {
