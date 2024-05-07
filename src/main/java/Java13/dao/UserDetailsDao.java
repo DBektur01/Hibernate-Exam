@@ -1,12 +1,14 @@
 package Java13.dao;
 
+import Java13.entity.UserDetails;
+
 import java.util.List;
 import java.util.Optional;
 
 /**
  * Author: Bektur Duyshenbek uulu
  */
-public interface  UserDetails {
+public interface UserDetailsDao {
     String saveUserDetailToUserPById(Long user_id , UserDetails userDetails);
 
     Optional<UserDetails> getUserDById(Long id);
